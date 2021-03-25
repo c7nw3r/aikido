@@ -1,3 +1,4 @@
+# package names
 tokenizers
 transformers
 datasets
@@ -6,3 +7,6 @@ torch==1.8.1+cu102
 pandas
 numpy
 tqdm
+
+# package location
+--find-links https://download.pytorch.org/whl/torch_stable.html
