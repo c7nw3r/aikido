@@ -1,2 +1,7 @@
 tokenizers
 transformers
+datasets
+torch
+pandas
+numpy
+tqdm
