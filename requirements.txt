@@ -1,6 +1,7 @@
 tokenizers
 transformers
 datasets
+cudatoolkit
 sklearn
 torch
 pandas
