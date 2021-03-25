@@ -1,6 +1,7 @@
 tokenizers
 transformers
 datasets
+sklearn
 torch
 pandas
 numpy
