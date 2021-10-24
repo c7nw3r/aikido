@@ -18,9 +18,7 @@ from aikido.modeling.nn.head.result.sequence_classifier_result import SequenceCl
 logger = logging.getLogger(__name__)
 
 
-# TODO: add electra support
-# TODO: add DistilBertSequenceClassificationHead
-class TextClassifierHead(PredictionHead):
+class DistilbertSequenceClassificationHead(PredictionHead):
     def __init__(self,
                  labels: List[str],
                  label_name="labels",
@@ -28,7 +26,7 @@ class TextClassifierHead(PredictionHead):
                  loss_reduction: str = "none",
                  embeds_dropout_prob: float = 0.1,
                  multiclass: bool = False):
-        super(TextClassifierHead, self).__init__()
+        super(DistilbertSequenceClassificationHead, self).__init__()
         self.labels = labels
         self.label_name = label_name
         self.dropout = nn.Dropout(embeds_dropout_prob)
