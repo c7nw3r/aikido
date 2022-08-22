@@ -4,10 +4,11 @@ from torch.optim import Optimizer
 from aikido.__api__.aikidoka import Aikidoka
 from aikido.__api__.dojo_listener import DojoListener
 from aikido.__api__.kata import Kata
+from aikido.__api__.mixin.optimizer_mixin import OptimizerMixin
 from aikido.__api__.trait.dojo.evaluation_trait import EvaluationTrait
 
 
-class Dojo(EvaluationTrait):
+class Dojo(EvaluationTrait, OptimizerMixin):
 
     def add_listener(self, listener: DojoListener):
         pass

@@ -9,7 +9,6 @@ from aikido.__api__.aikidoka import Aikidoka
 
 @dataclass
 class DojoKun:
-    optimizer: Callable[[Aikidoka], Optimizer]
     dans: int = 20
     batch_size: int = 64
     max_seq_len: int = 150

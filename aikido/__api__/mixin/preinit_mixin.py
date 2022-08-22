@@ -1,7 +1,7 @@
-from aikido.__api__.kata import LoadedKata
+from torch.utils.data import DataLoader
 
 
 class PreInit:
 
-    def pre_init(self, data: LoadedKata):
+    def pre_init(self, data: DataLoader):
         pass

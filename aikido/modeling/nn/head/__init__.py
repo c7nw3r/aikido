@@ -2,12 +2,11 @@ from typing import Optional
 
 import torch
 from torch.nn import Module
-from transformers import PretrainedConfig
 
 
 class PredictionHead(Module):
 
-    def init(self, config: PretrainedConfig):
+    def init(self, config):
         pass
 
     def get_buffer(self, name: str) -> Optional[torch.Tensor]:

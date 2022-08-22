@@ -10,7 +10,6 @@ from aikido.__api__.ref import Ref
 
 @dataclass
 class OnTrainingStarted:
-    aikidoka: Ref[Aikidoka]
-    optimizer: Ref[Optimizer]
+    aikidoka: Aikidoka
     kata: Kata
     kun: DojoKun

@@ -1,5 +1,5 @@
 from torch.nn import Module
-from transformers import PreTrainedModel, AutoModel
+from transformers import PreTrainedModel, AutoModelPreTrainedModel
 
 
 class LanguageModel:

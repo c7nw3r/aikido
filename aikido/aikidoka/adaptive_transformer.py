@@ -1,16 +1,15 @@
 from typing import List
 
-from transformers import PreTrainedModel
+from torch.utils.data import DataLoader
 
 from aikido.__api__.aikidoka import Aikidoka
-from aikido.__api__.kata import LoadedKata
 from aikido.modeling.nn.head import PredictionHead
 
 
 class AdaptiveTransformer(Aikidoka):
     """ PyTorch implementation containing all the modelling needed for your NLP task. Combines a language
     model and a prediction head. Allows for gradient flow back to the language model component."""
-    def __init__(self, language_model: PreTrainedModel, prediction_heads: List[PredictionHead]):
+    def __init__(self, language_model: Aikidoka, prediction_heads: List[PredictionHead]):
         super().__init__()
         self.language_model = language_model
         self.prediction_heads = prediction_heads
@@ -26,7 +25,7 @@ class AdaptiveTransformer(Aikidoka):
         for prediction_head in self.prediction_heads:
             prediction_head.to(*args, **kwargs)
 
-    def init_balance(self, data: LoadedKata):
+    def init_balance(self, data: DataLoader):
         for prediction_head in self.prediction_heads:
             if hasattr(prediction_head, "init_balance"):
                 assert callable(prediction_head.init_balance)

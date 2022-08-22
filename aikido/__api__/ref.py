@@ -8,11 +8,9 @@ T = typing.TypeVar("T")
 @dataclass
 class Ref(typing.Generic[T]):
     wrapped: T
-    desc: str = "default"
 
-    def set_wrapped(self, wrapped: T, desc: str = "default"):
+    def set_wrapped(self, wrapped: T):
         self.wrapped = wrapped
-        self.desc = desc
 
     def get_wrapped(self) -> T:
         return self.wrapped

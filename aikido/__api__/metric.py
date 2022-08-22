@@ -2,9 +2,9 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import List, Union, Dict
 
-import datasets
+# import datasets
 import numpy as np
-from datasets import load_metric
+# from datasets import load_metric
 
 Metrics = Union[List['Metric'], Dict[int, List['Metric']]]
 
@@ -31,17 +31,18 @@ class Metric(ABC):
 
     @staticmethod
     def load(name: str) -> 'Metric':
-        return HuggingFaceMetric(load_metric(name))
+        # return HuggingFaceMetric(load_metric(name))
+        return None
 
     @abstractmethod
     def __call__(self, request: MetricRequest) -> dict:
         pass
 
 
-@dataclass
-class HuggingFaceMetric(Metric):
-    metric: datasets.Metric
-
-    def __call__(self, request: MetricRequest) -> dict:
-        return self.metric.compute(request.preds, request.refs)
+# @dataclass
+# class HuggingFaceMetric(Metric):
+#     metric: datasets.Metric
+#
+#     def __call__(self, request: MetricRequest) -> dict:
+#         return self.metric.compute(request.preds, request.refs)
 

@@ -29,17 +29,11 @@ class CudaListener(DojoListener):
                 torch.cuda.reset_max_memory_cached()
 
             logging.info("enable CUDA for aikidoka")
-            event.aikidoka.wrapped.to("cuda")
+            event.aikidoka.to("cuda")
             event.kun.device = "cuda"
 
     def evaluation_started(self, event: OnEvaluationStarted):
-        if cuda.is_available():
-            torch.cuda.reset_max_memory_allocated()
-            torch.cuda.reset_max_memory_cached()
-
-            logging.info("enable CUDA for aikidoka")
-            event.aikidoka.wrapped.to("cuda")
-            event.kun.device = "cuda"
+        self.training_started(OnTrainingStarted(event.aikidoka, event.kata, event.kun))
 
     def batch_started(self, event: OnBatchStarted):
         to_device(event.batch.wrapped, event.kun.device)
